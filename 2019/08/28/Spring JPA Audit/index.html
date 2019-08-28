@@ -62,7 +62,7 @@
 <meta property="og:site_name" content="长路漫漫的个人博客">
 <meta property="og:description" content="JPA Audit在spring jpa中，支持在字段或者方法上进行注解@CreatedDate、@CreatedBy、@LastModifiedDate、@LastModifiedBy，从字面意思可以很清楚的了解，这几个注解的用处。  @CreatedDate  表示该字段为创建时间时间字段，在这个实体被insert的时候，会设置值  @CreatedBy  表示该字段为创建人，在这个实体被in">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-28T03:31:11.873Z">
+<meta property="og:updated_time" content="2019-08-28T03:37:38.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot JPA Audit">
 <meta name="twitter:description" content="JPA Audit在spring jpa中，支持在字段或者方法上进行注解@CreatedDate、@CreatedBy、@LastModifiedDate、@LastModifiedBy，从字面意思可以很清楚的了解，这几个注解的用处。  @CreatedDate  表示该字段为创建时间时间字段，在这个实体被insert的时候，会设置值  @CreatedBy  表示该字段为创建人，在这个实体被in">
@@ -235,7 +235,7 @@
                 
               
 
-              <time title="创建时间：2019-08-28 11:31:10 / 修改时间：11:31:11" itemprop="dateCreated datePublished" datetime="2019-08-28T11:31:10+08:00">2019-08-28</time>
+              <time title="创建时间：2019-08-28 11:31:10 / 修改时间：11:37:38" itemprop="dateCreated datePublished" datetime="2019-08-28T11:31:10+08:00">2019-08-28</time>
             </span>
           
             
@@ -277,8 +277,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">@Getter</span><br><span class="line">@Setter</span><br><span class="line">@ToString</span><br><span class="line">@EntityListeners(AuditingEntityListener.class)</span><br><span class="line">@MappedSuperclass</span><br><span class="line">public class BaseModel &#123;</span><br><span class="line"></span><br><span class="line">    @Id</span><br><span class="line">    @GeneratedValue(generator = &quot;snowFlakeId&quot;)</span><br><span class="line">    @GenericGenerator(name = &quot;snowFlakeId&quot;, strategy = &quot;org.cheng.CBlog.config.SnowflakeId&quot;)</span><br><span class="line">    @Column(columnDefinition = &quot;bigint(20) unsigned NOT NULL COMMENT &apos;ID&apos;&quot;)</span><br><span class="line">    private Long id;</span><br><span class="line"></span><br><span class="line">    @CreatedBy</span><br><span class="line">    @Column(columnDefinition = &quot;varchar(32) NOT NULL COMMENT &apos;创建人&apos;&quot;)</span><br><span class="line">    private String createBy;</span><br><span class="line"></span><br><span class="line">    @LastModifiedBy</span><br><span class="line">    @Column(columnDefinition = &quot;varchar(32) NOT NULL COMMENT &apos;修改人&apos;&quot;)</span><br><span class="line">    private String updateBy;</span><br><span class="line"></span><br><span class="line">    @CreatedDate</span><br><span class="line">    @Column(columnDefinition = &quot;datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT &apos;新增时间&apos;&quot;)</span><br><span class="line">    private Date rawAddTime;</span><br><span class="line"></span><br><span class="line">    @LastModifiedDate</span><br><span class="line">    @Column(columnDefinition = &quot;timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT &apos;更新时间&apos;&quot;)</span><br><span class="line">    private Date rawUpdateTime;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="MappedSuperclass的作用"><a href="#MappedSuperclass的作用" class="headerlink" title="@MappedSuperclass的作用"></a>@MappedSuperclass的作用</h3><ul>
-<li>在Jpa里, 当我们在定义多个实体类时, 可能会遇到这几个实体类都有几个共同的属性, 这时就会出现很多重复代码，<br>这时我们可以选择编写一个父类,将这些共同属性放到这个父类中, 并且在父类上加上<code>@MappedSuperclass</code>注解。</li>
-<li>注意：标注为<code>@MappedSuperclass</code>的类将不是一个完整的实体类，他将不会映射到数据库表，<br>但是他的属性都将映射到其子类的数据库字段中。</li>
+<li>在Jpa里, 当我们在定义多个实体类时, 可能会遇到这几个实体类都有几个共同的属性, 这时就会出现很多重复代码，这时我们可以选择编写一个父类,将这些共同属性放到这个父类中, 并且在父类上加上<code>@MappedSuperclass</code>注解。</li>
+<li>注意：标注为<code>@MappedSuperclass</code>的类将不是一个完整的实体类，他将不会映射到数据库表，但是他的属性都将映射到其子类的数据库字段中。</li>
 <li>标注为<code>@MappedSuperclass</code>的类不能再标注<code>@Entity</code>或@<code>Table</code>注解，也无需实现序列化接口。</li>
 </ul>
 
@@ -312,8 +312,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/28/JPA枚举类型的处理/" rel="next" title="JPA枚举类型的处理">
-                  <i class="fa fa-chevron-left"></i> JPA枚举类型的处理
+                <a href="/2019/08/28/springboot JPA ID生成策略/" rel="next" title="springboot入参处理">
+                  <i class="fa fa-chevron-left"></i> springboot入参处理
                 </a>
               
             </div>
@@ -322,8 +322,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/28/记录一次MySQL优化实践/" rel="prev" title="springboot JPA Audit">
-                  springboot JPA Audit <i class="fa fa-chevron-right"></i>
+                <a href="/2019/08/28/记录一次MySQL优化实践/" rel="prev" title="记录一次MySQL优化实践">
+                  记录一次MySQL优化实践 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
