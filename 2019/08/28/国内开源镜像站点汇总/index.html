@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="原文链接：https://blog.csdn.net/SueMagic/article/details/89402452 企业 搜狐开源镜像站：http://mirrors.sohu.com/ 网易开源镜像站：http://mirrors.163.com/ 开源中国：http://mirrors.oschina.net/ 首都在线科技股份有限公司：http://mirrors.yun-idc.co">
+<meta name="keywords" content="镜像,站点,maven,仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="国内开源镜像站点汇总">
+<meta property="og:url" content="http://yoursite.com/2019/08/28/国内开源镜像站点汇总/index.html">
+<meta property="og:site_name" content="长路漫漫的个人博客">
+<meta property="og:description" content="原文链接：https://blog.csdn.net/SueMagic/article/details/89402452 企业 搜狐开源镜像站：http://mirrors.sohu.com/ 网易开源镜像站：http://mirrors.163.com/ 开源中国：http://mirrors.oschina.net/ 首都在线科技股份有限公司：http://mirrors.yun-idc.co">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-28T03:18:30.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="国内开源镜像站点汇总">
+<meta name="twitter:description" content="原文链接：https://blog.csdn.net/SueMagic/article/details/89402452 企业 搜狐开源镜像站：http://mirrors.sohu.com/ 网易开源镜像站：http://mirrors.163.com/ 开源中国：http://mirrors.oschina.net/ 首都在线科技股份有限公司：http://mirrors.yun-idc.co">
+  <link rel="canonical" href="http://yoursite.com/2019/08/28/国内开源镜像站点汇总/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>国内开源镜像站点汇总 | 长路漫漫的个人博客</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">长路漫漫的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/国内开源镜像站点汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="长路漫漫">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="长路漫漫的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">国内开源镜像站点汇总
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-28 10:28:34 / 修改时间：11:18:30" itemprop="dateCreated datePublished" datetime="2019-08-28T10:28:34+08:00">2019-08-28</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>原文链接：<a href="https://blog.csdn.net/SueMagic/article/details/89402452" target="_blank" rel="noopener">https://blog.csdn.net/SueMagic/article/details/89402452</a></p>
+<h2 id="企业"><a href="#企业" class="headerlink" title="企业"></a>企业</h2><ul>
+<li>搜狐开源镜像站：<a href="http://mirrors.sohu.com/" target="_blank" rel="noopener">http://mirrors.sohu.com/</a></li>
+<li>网易开源镜像站：<a href="http://mirrors.163.com/" target="_blank" rel="noopener">http://mirrors.163.com/</a></li>
+<li>开源中国：<a href="http://mirrors.oschina.net/" target="_blank" rel="noopener">http://mirrors.oschina.net/</a></li>
+<li>首都在线科技股份有限公司：<a href="http://mirrors.yun-idc.com/" target="_blank" rel="noopener">http://mirrors.yun-idc.com/</a></li>
+<li>阿里巴巴开源镜像：<a href="https://opsx.alibaba.com/mirror" target="_blank" rel="noopener">https://opsx.alibaba.com/mirror</a></li>
+<li>LUPA：<a href="http://mirror.lupaworld.com/" target="_blank" rel="noopener">http://mirror.lupaworld.com/</a></li>
+<li>常州贝特康姆软件技术有限公司(原cn99）：<a href="http://centos.bitcomm.cn/" target="_blank" rel="noopener">http://centos.bitcomm.cn/</a></li>
+<li>淘宝网开源软件镜像站：<a href="http://ruby.taobao.org/" target="_blank" rel="noopener">http://ruby.taobao.org/</a></li>
+<li>天翼云开源软件镜像站：<a href="http://mirrors.ctyun.cn/" target="_blank" rel="noopener">http://mirrors.ctyun.cn/</a></li>
+<li>华为开源镜像源：<a href="https://mirrors.huaweicloud.com/" target="_blank" rel="noopener">https://mirrors.huaweicloud.com/</a><h2 id="大学"><a href="#大学" class="headerlink" title="大学"></a>大学</h2></li>
+<li>中山大学镜像：<a href="http://mirror.sysu.edu.cn/" target="_blank" rel="noopener">http://mirror.sysu.edu.cn/</a></li>
+<li>山东理工大学：<a href="http://mirrors.sdutlinux.org/" target="_blank" rel="noopener">http://mirrors.sdutlinux.org/</a></li>
+<li>哈尔滨工业大学：<a href="http://run.hit.edu.cn/" target="_blank" rel="noopener">http://run.hit.edu.cn/</a></li>
+<li>大连理工大学：<a href="http://mirror.dlut.edu.cn/" target="_blank" rel="noopener">http://mirror.dlut.edu.cn/</a></li>
+<li>西南林业大学 <a href="http://cs3.swfu.edu.cn/cs3guide.html" target="_blank" rel="noopener">http://cs3.swfu.edu.cn/cs3guide.html</a></li>
+<li>北京化工大学（仅教育网可以访问），包含 CentOS 镜像：<a href="http://ubuntu.buct.edu.cn/" target="_blank" rel="noopener">http://ubuntu.buct.edu.cn/</a></li>
+<li>西南大学：<a href="http://linux.swu.edu.cn/swudownload/Distributions/" target="_blank" rel="noopener">http://linux.swu.edu.cn/swudownload/Distributions/</a></li>
+<li>青岛大学：<a href="http://mirror.qdu.edu.cn/" target="_blank" rel="noopener">http://mirror.qdu.edu.cn/</a></li>
+<li>南京师范大学：<a href="http://mirrors.njnu.edu.cn/" target="_blank" rel="noopener">http://mirrors.njnu.edu.cn/</a></li>
+<li>大连东软信息学院： <a href="http://mirrors.neusoft.edu.cn/" target="_blank" rel="noopener">http://mirrors.neusoft.edu.cn/</a></li>
+<li>浙江大学：<a href="http://mirrors.zju.edu.cn/" target="_blank" rel="noopener">http://mirrors.zju.edu.cn/</a></li>
+<li>兰州大学：<a href="http://mirror.lzu.edu.cn/" target="_blank" rel="noopener">http://mirror.lzu.edu.cn/</a></li>
+<li>天津大学：<ul>
+<li><a href="http://mirror.tju.edu.cn/" target="_blank" rel="noopener">http://mirror.tju.edu.cn/</a></li>
+<li><a href="https://mirror.tju6.edu.cn" target="_blank" rel="noopener">https://mirror.tju6.edu.cn</a></li>
+</ul>
+</li>
+<li>厦门大学：<ul>
+<li><a href="http://mirrors.xmu.edu.cn/" target="_blank" rel="noopener">http://mirrors.xmu.edu.cn/</a></li>
+<li><a href="https://mirrors.xmu6.edu.cn" target="_blank" rel="noopener">https://mirrors.xmu6.edu.cn</a></li>
+</ul>
+</li>
+<li>北京理工大学：<ul>
+<li><a href="http://mirror.bit.edu.cn" target="_blank" rel="noopener">http://mirror.bit.edu.cn</a></li>
+<li><a href="http://mirror.bit6.edu.cn" target="_blank" rel="noopener">http://mirror.bit6.edu.cn</a></li>
+</ul>
+</li>
+<li>北京交通大学：<ul>
+<li><a href="http://mirror.bjtu.edu.cn" target="_blank" rel="noopener">http://mirror.bjtu.edu.cn</a></li>
+<li><a href="http://mirror6.bjtu.edu.cn" target="_blank" rel="noopener">http://mirror6.bjtu.edu.cn</a></li>
+<li><a href="http://debian.bjtu.edu.cn" target="_blank" rel="noopener">http://debian.bjtu.edu.cn</a></li>
+</ul>
+</li>
+<li>上海交通大学：<ul>
+<li><a href="http://ftp.sjtu.edu.cn/" target="_blank" rel="noopener">http://ftp.sjtu.edu.cn/</a></li>
+<li><a href="http://ftp6.sjtu.edu.cn" target="_blank" rel="noopener">http://ftp6.sjtu.edu.cn</a></li>
+</ul>
+</li>
+<li>清华大学：<ul>
+<li><a href="http://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">http://mirrors.tuna.tsinghua.edu.cn/</a></li>
+<li><a href="http://mirrors.6.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">http://mirrors.6.tuna.tsinghua.edu.cn/</a></li>
+<li><a href="http://mirrors.4.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">http://mirrors.4.tuna.tsinghua.edu.cn/</a></li>
+</ul>
+</li>
+<li>中国科学技术大学：<ul>
+<li><a href="http://mirrors.ustc.edu.cn/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/</a></li>
+<li><a href="http://mirrors4.ustc.edu.cn/" target="_blank" rel="noopener">http://mirrors4.ustc.edu.cn/</a></li>
+<li><a href="http://mirrors6.ustc.edu.cn/" target="_blank" rel="noopener">http://mirrors6.ustc.edu.cn/</a></li>
+</ul>
+</li>
+<li>东北大学：<ul>
+<li><a href="http://mirror.neu.edu.cn/" target="_blank" rel="noopener">http://mirror.neu.edu.cn/</a></li>
+<li><a href="http://mirror.neu6.edu.cn/" target="_blank" rel="noopener">http://mirror.neu6.edu.cn/</a></li>
+</ul>
+</li>
+<li>华中科技大学：<ul>
+<li><a href="http://mirrors.hust.edu.cn/" target="_blank" rel="noopener">http://mirrors.hust.edu.cn/</a></li>
+<li><a href="http://mirrors.hustunique.com/" target="_blank" rel="noopener">http://mirrors.hustunique.com/</a></li>
+</ul>
+</li>
+<li>中国地质大学：<ul>
+<li><a href="http://cugbteam.org/" target="_blank" rel="noopener">http://cugbteam.org/</a></li>
+<li><a href="https://mirrors.cug.edu.cn/" target="_blank" rel="noopener">https://mirrors.cug.edu.cn/</a></li>
+<li><a href="https://mirrors.cug6.edu.cn/" target="_blank" rel="noopener">https://mirrors.cug6.edu.cn/</a></li>
+</ul>
+</li>
+<li>电子科技大学：<a href="http://ubuntu.uestc.edu.cn/" target="_blank" rel="noopener">http://ubuntu.uestc.edu.cn/</a></li>
+<li>电子科大凝聚工作室(Raspbian单一系统镜像)： <a href="http://raspbian.cnssuestc.org/" target="_blank" rel="noopener">http://raspbian.cnssuestc.org/</a></li>
+<li>电子科大星辰工作室(少数小众发布版镜像)：<a href="http://mirrors.stuhome.net/" target="_blank" rel="noopener">http://mirrors.stuhome.net/</a></li>
+<li>南阳理工学院： <a href="http://mirror.nyist.edu.cn" target="_blank" rel="noopener">http://mirror.nyist.edu.cn</a></li>
+<li>重庆大学： <a href="http://mirrors.cqu.edu.cn/" target="_blank" rel="noopener">http://mirrors.cqu.edu.cn/</a></li>
+</ul>
+<h2 id="PyPi-镜像"><a href="#PyPi-镜像" class="headerlink" title="PyPi 镜像"></a>PyPi 镜像</h2><ul>
+<li>豆瓣：<a href="http://pypi.douban.com/" target="_blank" rel="noopener">http://pypi.douban.com/</a></li>
+<li>山东理工大学：<a href="http://pypi.sdutlinux.org/" target="_blank" rel="noopener">http://pypi.sdutlinux.org/</a></li>
+<li>中山大学：<a href="http://mirror.sysu.edu.cn/pypi/" target="_blank" rel="noopener">http://mirror.sysu.edu.cn/pypi/</a></li>
+<li>V2EX：<a href="http://pypi.v2ex.com/simple/" target="_blank" rel="noopener">http://pypi.v2ex.com/simple/</a><h2 id="RubyGems-镜像"><a href="#RubyGems-镜像" class="headerlink" title="RubyGems 镜像"></a>RubyGems 镜像</h2></li>
+<li>中山大学：<a href="http://mirror.sysu.edu.cn/rubygems/" target="_blank" rel="noopener">http://mirror.sysu.edu.cn/rubygems/</a></li>
+<li>山东理工大学：<a href="http://ruby.sdutlinux.org/" target="_blank" rel="noopener">http://ruby.sdutlinux.org/</a></li>
+<li>淘宝网：<a href="http://ruby.taobao.org/" target="_blank" rel="noopener">http://ruby.taobao.org/</a><h2 id="npm-镜像"><a href="#npm-镜像" class="headerlink" title="npm 镜像"></a>npm 镜像</h2></li>
+<li>cnpmjs：<a href="http://cnpmjs.org/" target="_blank" rel="noopener">http://cnpmjs.org/</a></li>
+<li>淘宝：<a href="http://npm.taobao.org" target="_blank" rel="noopener">http://npm.taobao.org</a></li>
+</ul>
+<h2 id="阿里云maven仓库地址"><a href="#阿里云maven仓库地址" class="headerlink" title="阿里云maven仓库地址"></a>阿里云maven仓库地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">    &lt;name&gt;aliyun maven&lt;/name&gt; </span><br><span class="line">    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt; </span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/镜像/" rel="tag"># 镜像</a>
+            
+              <a href="/tags/站点/" rel="tag"># 站点</a>
+            
+              <a href="/tags/maven/" rel="tag"># maven</a>
+            
+              <a href="/tags/仓库/" rel="tag"># 仓库</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/28/springboot入参处理/" rel="prev" title="springboot入参处理">
+                  springboot入参处理 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#企业"><span class="nav-number">1.</span> <span class="nav-text">企业</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大学"><span class="nav-number">2.</span> <span class="nav-text">大学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyPi-镜像"><span class="nav-number">3.</span> <span class="nav-text">PyPi 镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RubyGems-镜像"><span class="nav-number">4.</span> <span class="nav-text">RubyGems 镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-镜像"><span class="nav-number">5.</span> <span class="nav-text">npm 镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阿里云maven仓库地址"><span class="nav-number">6.</span> <span class="nav-text">阿里云maven仓库地址</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">长路漫漫</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">长路漫漫</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/muse.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
