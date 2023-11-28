@@ -1,26 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <el-tabs type="border-card">
+    <el-tab-pane label="User">User</el-tab-pane>
+    <el-tab-pane label="Config">Config</el-tab-pane>
+    <el-tab-pane label="Role">Role</el-tab-pane>
+    <el-tab-pane label="Task">Task</el-tab-pane>
+  </el-tabs>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
