@@ -3,9 +3,7 @@
 </script>
 
 <template>
-
-<h1>url</h1>
-
+<div>url</div>
 </template>
 
 <style scoped>
