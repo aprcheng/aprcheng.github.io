@@ -71,12 +71,12 @@ function currentDateFormatSelectChange() {
 
 <template>
   <el-row>
-    <el-col :span="4" :offset="2">
+    <el-col :span="8">
       <el-select v-model="data.currentDateFormat" placeholder="时间格式" @change="currentDateFormatSelectChange">
         <el-option v-for="dateformat in dateFormats" :key="dateformat" :label="dateformat" :value="dateformat"/>
       </el-select>
     </el-col>
-    <el-col :span="4">
+    <el-col :span="8">
       <el-tooltip
           class="box-item"
           effect="dark"
@@ -85,7 +85,7 @@ function currentDateFormatSelectChange() {
         <span @dblclick="copyValue(data.nowStr)">{{ data.nowStr }}</span>
       </el-tooltip>
     </el-col>
-    <el-col :span="4">
+    <el-col :span="8">
       <el-tooltip
           class="box-item"
           effect="dark"
@@ -97,12 +97,12 @@ function currentDateFormatSelectChange() {
   </el-row>
 
   <el-row>
-    <el-col :span="4" :offset="2">
+    <el-col :span="8">
       <el-select v-model="data.inputDateFormat" placeholder="时间格式">
         <el-option v-for="dateformat in dateFormats" :key="dateformat" :label="dateformat" :value="dateformat"/>
       </el-select>
     </el-col>
-    <el-col :span="4">
+    <el-col :span="8">
       <el-input
           v-model="data.inputDateStr"
           type="text"
@@ -112,7 +112,7 @@ function currentDateFormatSelectChange() {
           @input="inputDateStrChange"
       />
     </el-col>
-    <el-col :span="4">
+    <el-col :span="8">
       <el-input
           v-model="data.inputTimestamp"
           type="text"
@@ -131,14 +131,6 @@ function currentDateFormatSelectChange() {
   margin: 40px;
   text-align: left;
   align-content: center;
-}
-
-.el-row {
-  align-items: center;
-}
-
-.input-with-select {
-  width: 60%;
 }
 
 </style>
